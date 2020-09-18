@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+}
+
+<!-- Css -->
+<link href="~/Content/dangnhap_khachhang.css" rel="stylesheet" />
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet'>
+<form action="@Url.Action("DangNhap","KhachHang")" method="post">
+
+    <div class="imgcontainer">
+      <img src="~/Content/imgWEB/avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <div style="text-align:center">
+                <h2 style="font-size:60px;font-family: 'Monoton';">LOGIN</h2>
+                <p>Vui lòng nhập  tên user và password</p>
+                <h4 style="font-size:30px;color:black;font-family: 'Cookie';">@ViewBag.ThongBao</h4>
+            </div>       
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+        <input class="form-control" name="txttendn" type="text" placeholder="Enter Username" required /> 
+                @ViewData["Loi1"]
+      <label for="psw"><b>Password</b></label>
+       <input class="form-control" name="txtmatkhau" type="password" placeholder="Enter Password" required />
+                  @ViewData["Loi2"] 
+        <div class="row d-flex justify-content-center">
+             <button type="submit" class="btn btn-warning">Đăng Nhập</button>   |
+              <a class="btn btn-danger" href="@Url.Action("DangXuat","KhachHang")">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Đăng xuất
+                </a>
+        </div>
+      
+    </div>
+    <div class="row d-flex justify-content-center">
+        <p style="font-size:20px;font-family: 'Cookie';">Không có tài khoản?</p> 
+        <a class="btn btn-danger" href="@Url.Action("DangKy","KhachHang")">Đăng ký</a>
+        
+    </div>
+  
+
+  </form>
+

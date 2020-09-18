@@ -1,0 +1,44 @@
+﻿@model DoA_QLCuaHangBanDongHo.Models.LOAI
+
+@{
+    ViewBag.Title = "ChinhSuaLoai";
+    Layout = "~/Views/Shared/_LayouDangNhap.cshtml";
+}
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<h2 style="color:black;font-family: 'Cookie'; text-align:center">CHỈNH SỬA LOẠI</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.MaLoai)
+        <table class="table">
+            <tr>
+                <td>TÊN LOẠI: </td>
+                <td>
+                     @Html.TextBox("tenloai")
+                    @ViewData["Loi"]
+
+                </td>
+            </tr>
+            <tr>
+                <td>TÊN NHÓM:</td>
+                <td>@Html.DropDownList("MaNhom")</td>
+            </tr>
+        </table>
+        <p>
+            <input class="btn btn-warning" type="submit" value="Save" />
+            |
+              @Html.ActionLink("TRỞ VỀ ", "QuanLyLoai", null, new { @class = "btn btn-warning" })
+        </p>
+    </fieldset>
+}
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

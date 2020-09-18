@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<link href="~/Content/thongKe.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="font-weight:bold;text-align:center">Thống Kê</h1>
+
+<!--body wrapper end-->
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <p style="font-size:30px;"> <i class="icons fa fa-shopping-cart"></i></p>
+      <h3>@ViewBag.ThongKeDonHang </h3>
+      <p>Đơn Hàng</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p style="font-size:30px;"><i class="icons fa fa-shopping-bag"></i></p>
+      <h3>@ViewBag.ThongKeSanPham</h3>
+      <p>Số lượng tồn</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <p style="font-size:30px;"><i class="icons fa fa-usd"></i></p>
+       @{decimal TongDoanhThu = decimal.Parse(ViewBag.ThongKeDoanhThu.ToString());
+                TongDoanhThu = TongDoanhThu / 1000;
+        }
+        <h3>
+            @TongDoanhThu.ToString("#,##") K<span></span>
+      </h3>
+      <p>Tổng Tiền</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <p style="font-size:30px;"><i class="icons fa fa-shopping-bag"></i></p>
+      <h3>@ViewBag.ThongKeLoaiSanPham</h3>
+      <p>Loại Sản Phẩm</p>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,110 @@
+﻿@*@model IEnumerable<DoA_QLCuaHangBanDongHo.Models.SANPHAM>*@
+@using DoA_QLCuaHangBanDongHo.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoA_QLCuaHangBanDongHo.Models.SANPHAM>
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else 
+    {
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "DongHo";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SẢN PHẨM</h2>
+<table class="table">
+    <tr>
+        <th>
+           TÊN SP
+        </th>
+        <th>
+            GIÁ BÁN`
+        </th>
+        <th>
+           MÔ TẢ
+        </th>
+        <th>
+           NGÀY CẬP NHẬT
+        </th>
+        <th>
+           ẢNH BÌA
+        </th>
+        <th>
+           SỐ LƯỢNG TỒN
+        </th>
+        <th>
+           TÊN LOẠI
+        </th>
+        <th>
+            TÊN NHÓM
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Truncate(item.MoTa, 100)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        </td>
+        <td>
+            <img style="width:100px; height:100px" src="@Url.Content("~/Content/imgWEB/"+ item.AnhBia)" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongTon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOAI.TenLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHOM.TenNhom)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suadongho", new { id=item.MaSP }) |
+            @Html.ActionLink("Chi tiết", "Chitietdongho", new { id=item.MaSP }) |
+            @Html.ActionLink("Xóa", "Xoadongho", new { id=item.MaSP })
+        </td>
+    </tr>
+    
+}
+
+</table>
+   <p style=" font-family:  'Cookie';font-size:25px"> Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount </p>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("DongHo", new { page = page }))
+</div>
+
+<style>
+    .MenuTrang {
+       font-family:'Cookie';
+    }
+     .MenuTrang a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color .3s;
+    }
+
+    .MenuTrang a.active {
+      background-color: dodgerblue;
+      color: white;
+    }
+
+    .MenuTrang a:hover:not(.active) {background-color: #ddd;}
+</style>

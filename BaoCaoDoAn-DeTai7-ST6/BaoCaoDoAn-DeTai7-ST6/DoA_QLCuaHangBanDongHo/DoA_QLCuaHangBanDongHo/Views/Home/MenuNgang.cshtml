@@ -1,0 +1,111 @@
+﻿@using DoA_QLCuaHangBanDongHo.Models;
+@model List<LOAI>
+@*<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">Trang chủ</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("DangNhap","KhachHang")">Đăng nhập<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("DangKy","KhachHang")">Đăng ký</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                            Thương hiệu
+                        </a>
+                        <div class="dropdown-content">
+                            @foreach(var n in Model)
+                            {
+                            <a class="dropdown-item" href="@Url.Action("HienThiLoai", new{maloai=@n.MaLoai})">@n.TenLoai</a>
+                            
+                            }
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("LichSu","Home")">Lịch sử đồng hồ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("DangNhap","Admin")">Quản lý</a>
+                    </li>
+                </ul>
+                <form action="@Url.Action("TimKiem","Home")" method="post" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Tìm</button>
+                </form>            
+                    @Html.Action("GioHangpartial","GioHang")
+            </div>
+        </div>
+    </nav>*@
+ <!--định dạng Navigation -->
+
+@* <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>*@
+ `<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+<link href="~/Content/CSSMENU/agency.min.css" rel="stylesheet" />
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-flex justify-content-start" id="mainNav">
+    <div class="container  d-flex justify-content-start">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: 'Cookie';font-size:40px">NND</a>
+      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse  d-flex justify-content-start" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto  d-flex justify-content-start">
+          <li class="nav-item">
+                <a class="menungang nav-link js-scroll-trigger" href="@Url.Action("Index","Home")">Home</a>
+            
+          </li>
+          <li class="nav-item">
+             <a class="menungang nav-link js-scroll-trigger" href="@Url.Action("DangNhap","KhachHang")">Đăng nhập<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+          <a class="menungang nav-link js-scroll-trigger" href="@Url.Action("DangKy","KhachHang")">Đăng ký</a>
+          </li>
+            <li class="nav-item dropdown">
+                        <a class="menungang nav-link js-scroll-trigger" href="#" id="navbarDropdown">
+                            Thương hiệu
+                        </a>
+                        <div class="dropdown-content">
+                            @foreach(var n in Model)
+                            {
+                            <a class="dropdown-item" href="@Url.Action("HienThiLoai", new{maloai=@n.MaLoai})">@n.TenLoai</a>
+                            
+                            }
+                        </div>
+                    </li>
+             <li class="nav-item">
+             <a class="menungang nav-link js-scroll-trigger" href="@Url.Action("LichSu","Home")">Lịch sử</a>
+          </li>
+          <li class="nav-item">
+             <a class="menungang nav-link js-scroll-trigger" href="@Url.Action("DangNhap","Admin")">Admin</a>
+          </li>
+                <form action="@Url.Action("TimKiem","Home")" method="post" class="form-inline my-2 my-lg-0">                 
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                     <input class="form-control mr-sm-2" type="text" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search"/>
+                      <div class="input-group-append">
+                        <button type="submit" class="input-group-text bg-danger text-white lighten-3"  id="basic-text1">Tìm</button>
+                      </div>
+                    </div>
+                </form>
+                @Html.Action("GioHangpartial","GioHang")
+        </ul>
+      </div>
+    </div>
+  </nav>
+<br />
+<br />
+<br />
+<br />
+<br />
+<!--định dạng Navigation -->
+<script src="~/Content/CSSMENU/vendor/jquery/jquery.min.js"></script>
+<script src="~/Content/CSSMENU/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/CSSMENU/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="~/Content/CSSMENU/js/contact_me.js"></script>
+<script src="~/Content/CSSMENU/js/agency.min.js"></script>
+<script src="~/Content/CSSMENU/js/jqBootstrapValidation.js"></script>
